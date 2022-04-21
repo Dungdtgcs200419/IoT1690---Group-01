@@ -6,10 +6,11 @@
 
 #define TIMEOUT 5000 // mS
 #define LED 12 //pin 12 for LED light
+#define BUZZER 11// pin 11 for the BUzzer
 
-String server = "192.168.1.4"; // np. www.examble.pl albo adres ip 129.75.1.32
-String ssid = "THANH KHOA 123";
-String pwd = "0942638666";
+String server = "172.20.10.5"; // np. www.examble.pl albo adres ip 129.75.1.32
+String ssid = "MillerD";
+String pwd = "Dung310105";
 
 
 const int TXPin = 3;
@@ -40,6 +41,8 @@ LiquidCrystal_I2C lcd(0x27,16,2);
 void setup()
 {
     pinMode(LED, OUTPUT); //init the pin for the led light
+    pinMode(BUZZER, OUTPUT); //init the pin for the BUZZER
+
     
     Serial.begin(9600);
     esp8266.begin(9600); //start the serial for the esp8266 module.
@@ -153,6 +156,12 @@ void loop()
     digitalWrite(LED, HIGH);
     delay(100);
     digitalWrite(LED, LOW);
+    delay(100);
+    digitalWrite(BUZZER, HIGH);
+    delay(100);
+ } else
+ {
+    digitalWrite(BUZZER, LOW);
     delay(100);
  }
 
